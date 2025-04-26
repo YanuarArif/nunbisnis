@@ -161,7 +161,7 @@ export function PricingCard({
             <CardTitle className="mt-4 text-3xl font-bold">
               {price}
               <span className="ml-1 text-base font-normal text-muted-foreground">
-                /bulan
+                {/* /bulan */}
               </span>
             </CardTitle>
 

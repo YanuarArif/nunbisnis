@@ -7,13 +7,13 @@ import { FeatureDetailsAccordion } from "@/components/ui/feature-details-accordi
 
 export function Pricing() {
   const personalFeatures = [
-    "1 Halaman Website",
-    "Domain .com / .id / .co.id",
+    "1-5 Halaman Website",
+    "Domain .com",
     "Hosting 1GB",
     "SSL Certificate",
     "Mobile Responsive",
-    "Optimasi SEO Dasar",
-    "Revisi 1x",
+    "Website Static",
+    "Revisi 3x",
     "Support 7 Hari",
   ];
 
@@ -51,15 +51,15 @@ export function Pricing() {
   ];
 
   const professionalFeatures = [
-    "5 Halaman Website",
-    "Domain .com / .id / .co.id",
+    "5-10 Halaman Website",
+    "Domain .com / .id",
     "Hosting 5GB",
     "SSL Certificate",
     "Mobile Responsive",
-    "Optimasi SEO Menengah",
+    "Website Dinamis (Toko Online)",
     "Form Kontak & Maps",
     "Integrasi Media Sosial",
-    "Revisi 3x",
+    "Revisi 10x",
     "Support 14 Hari",
   ];
 
@@ -99,14 +99,14 @@ export function Pricing() {
   const enterpriseFeatures = [
     "10+ Halaman Website",
     "Domain Premium",
-    "Hosting 10GB",
+    "Hosting 20GB",
     "SSL Certificate",
     "Mobile Responsive",
     "Optimasi SEO Lanjutan",
     "Form Kontak & Maps",
     "Integrasi Media Sosial",
     "Sistem Login Admin",
-    "Fitur E-commerce Dasar",
+    "Fitur Payment Gateway untuk E-commerce",
     "Revisi Unlimited",
     "Support 30 Hari",
   ];
@@ -176,7 +176,7 @@ export function Pricing() {
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           <PricingCard
             title="Website Pribadi"
-            price="Rp 1.500.000"
+            price="Rp 1.000.000"
             description="Cocok untuk website personal, portofolio, atau blog pribadi."
             features={personalFeatures}
             colorVariant="blue"
@@ -185,7 +185,7 @@ export function Pricing() {
 
           <PricingCard
             title="Website Professional"
-            price="Rp 3.500.000"
+            price="Rp 2.000.000"
             description="Ideal untuk bisnis kecil hingga menengah yang membutuhkan website profesional."
             features={professionalFeatures}
             colorVariant="purple"
@@ -195,7 +195,7 @@ export function Pricing() {
 
           <PricingCard
             title="Website Enterprise"
-            price="Rp 7.500.000"
+            price="Rp 4.500.000"
             description="Solusi lengkap untuk perusahaan besar dengan kebutuhan website kompleks."
             features={enterpriseFeatures}
             colorVariant="green"
@@ -204,7 +204,7 @@ export function Pricing() {
         </div>
 
         {/* Accordions Row - Completely separate from cards */}
-        <div className="mt-8 grid gap-8 md:grid-cols-3">
+        {/* <div className="mt-8 grid gap-8 md:grid-cols-3">
           <div>
             <FeatureDetailsAccordion
               detailedFeatures={personalDetailedFeatures}
@@ -225,7 +225,7 @@ export function Pricing() {
               colorVariant="green"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* No separate accordions row needed anymore */}
 
