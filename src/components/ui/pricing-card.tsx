@@ -37,6 +37,7 @@ interface PricingCardProps extends React.ComponentProps<typeof Card> {
   whatsappNumber?: string;
   whatsappMessage?: string;
   onButtonClick?: () => void;
+  isMonthly?: boolean;
 }
 
 export function PricingCard({
@@ -51,6 +52,7 @@ export function PricingCard({
   whatsappNumber = "6285725300663",
   whatsappMessage = "Halo, saya tertarik dengan paket",
   onButtonClick,
+  isMonthly = false,
   ...props
 }: PricingCardProps) {
   // Map color variants to button variants and badge variants
@@ -102,8 +104,11 @@ export function PricingCard({
       return;
     }
 
-    // Format the message with the package title
-    const formattedMessage = `${whatsappMessage} ${title} (${price})`;
+    // Format the message with the package title and payment type
+    const paymentType = isMonthly ? "pembayaran bulanan" : "pembayaran sekali";
+    const formattedMessage = `${whatsappMessage} ${title} (${price}${
+      isMonthly ? "/bulan" : ""
+    }) dengan ${paymentType}`;
 
     // Create the WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
@@ -161,7 +166,7 @@ export function PricingCard({
             <CardTitle className="mt-4 text-3xl font-bold">
               {price}
               <span className="ml-1 text-base font-normal text-muted-foreground">
-                {/* /bulan */}
+                {isMonthly ? "/bulan" : ""}
               </span>
             </CardTitle>
 

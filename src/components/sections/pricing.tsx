@@ -6,6 +6,7 @@ import { PricingCard } from "@/components/ui/pricing-card";
 import { FeatureDetailsAccordion } from "@/components/ui/feature-details-accordion";
 
 export function Pricing() {
+  // One-time payment features
   const personalFeatures = [
     "1-5 Halaman Website",
     "Domain .com",
@@ -15,6 +16,18 @@ export function Pricing() {
     "Website Static",
     "Revisi 3x",
     "Support 7 Hari",
+  ];
+
+  // Monthly payment features
+  const personalMonthlyFeatures = [
+    "1-5 Halaman Website",
+    "Domain .com",
+    "Hosting 1GB",
+    "SSL Certificate",
+    "Mobile Responsive",
+    "Website Static",
+    "Revisi 1x/bulan",
+    "Support 24/7",
   ];
 
   const personalDetailedFeatures = [
@@ -50,6 +63,7 @@ export function Pricing() {
     },
   ];
 
+  // One-time payment features
   const professionalFeatures = [
     "5-10 Halaman Website",
     "Domain .com / .id",
@@ -61,6 +75,20 @@ export function Pricing() {
     "Integrasi Media Sosial",
     "Revisi 10x",
     "Support 14 Hari",
+  ];
+
+  // Monthly payment features
+  const professionalMonthlyFeatures = [
+    "5-10 Halaman Website",
+    "Domain .com / .id",
+    "Hosting 5GB",
+    "SSL Certificate",
+    "Mobile Responsive",
+    "Website Dinamis (Toko Online)",
+    "Form Kontak & Maps",
+    "Integrasi Media Sosial",
+    "Revisi 3x/bulan",
+    "Support 24/7",
   ];
 
   const professionalDetailedFeatures = [
@@ -96,6 +124,7 @@ export function Pricing() {
     },
   ];
 
+  // One-time payment features
   const enterpriseFeatures = [
     "10+ Halaman Website",
     "Domain Premium",
@@ -109,6 +138,22 @@ export function Pricing() {
     "Fitur Payment Gateway untuk E-commerce",
     "Revisi Unlimited",
     "Support 30 Hari",
+  ];
+
+  // Monthly payment features
+  const enterpriseMonthlyFeatures = [
+    "10+ Halaman Website",
+    "Domain Premium",
+    "Hosting 20GB",
+    "SSL Certificate",
+    "Mobile Responsive",
+    "Optimasi SEO Lanjutan",
+    "Form Kontak & Maps",
+    "Integrasi Media Sosial",
+    "Sistem Login Admin",
+    "Fitur Payment Gateway untuk E-commerce",
+    "Revisi 5x/bulan",
+    "Support 24/7",
   ];
 
   const enterpriseDetailedFeatures = [
@@ -172,8 +217,22 @@ export function Pricing() {
           </p>
         </motion.div>
 
-        {/* Pricing Cards Row */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        {/* One-time Payment Pricing Cards Row */}
+        <motion.div
+          className="mx-auto max-w-3xl text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <h3 className="text-2xl font-bold tracking-tight">
+            Pembayaran Sekali
+          </h3>
+          <p className="mt-2 text-md text-muted-foreground">
+            Bayar sekali untuk pembuatan website lengkap
+          </p>
+        </motion.div>
+
+        <div className="mt-8 grid gap-8 md:grid-cols-3">
           <PricingCard
             title="Website Pribadi"
             price="Rp 1.000.000"
@@ -185,7 +244,7 @@ export function Pricing() {
 
           <PricingCard
             title="Website Professional"
-            price="Rp 2.000.000"
+            price="Rp 2.500.000"
             description="Ideal untuk bisnis kecil hingga menengah yang membutuhkan website profesional."
             features={professionalFeatures}
             colorVariant="purple"
@@ -200,6 +259,54 @@ export function Pricing() {
             features={enterpriseFeatures}
             colorVariant="green"
             buttonText="Pilih Paket Enterprise"
+          />
+        </div>
+
+        {/* Monthly Payment Pricing Cards Row */}
+        <motion.div
+          className="mx-auto max-w-3xl text-center mt-24"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <h3 className="text-2xl font-bold tracking-tight">
+            Pembayaran Bulanan
+          </h3>
+          <p className="mt-2 text-md text-muted-foreground">
+            Bayar per bulan untuk layanan website berkelanjutan
+          </p>
+        </motion.div>
+
+        <div className="mt-8 grid gap-8 md:grid-cols-3">
+          <PricingCard
+            title="Website Pribadi"
+            price="Rp 0"
+            description="Cocok untuk website personal, portofolio, atau blog pribadi."
+            features={personalMonthlyFeatures}
+            colorVariant="blue"
+            buttonText="Pilih Paket Pribadi"
+            isMonthly={true}
+          />
+
+          <PricingCard
+            title="Website Professional"
+            price="Rp 200.000"
+            description="Ideal untuk bisnis kecil hingga menengah yang membutuhkan website profesional."
+            features={professionalMonthlyFeatures}
+            colorVariant="purple"
+            popular={true}
+            buttonText="Pilih Paket Professional"
+            isMonthly={true}
+          />
+
+          <PricingCard
+            title="Website Enterprise"
+            price="Rp 300.000"
+            description="Solusi lengkap untuk perusahaan besar dengan kebutuhan website kompleks."
+            features={enterpriseMonthlyFeatures}
+            colorVariant="green"
+            buttonText="Pilih Paket Enterprise"
+            isMonthly={true}
           />
         </div>
 
