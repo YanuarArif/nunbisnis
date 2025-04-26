@@ -37,7 +37,7 @@ interface PricingCardProps extends React.ComponentProps<typeof Card> {
   whatsappNumber?: string;
   whatsappMessage?: string;
   onButtonClick?: () => void;
-  isMonthly?: boolean;
+  isMonthly?: boolean | string;
 }
 
 export function PricingCard({
@@ -105,10 +105,19 @@ export function PricingCard({
     }
 
     // Format the message with the package title and payment type
-    const paymentType = isMonthly ? "pembayaran bulanan" : "pembayaran sekali";
-    const formattedMessage = `${whatsappMessage} ${title} (${price}${
-      isMonthly ? "/bulan" : ""
-    }) dengan ${paymentType}`;
+    let paymentPeriod = "";
+    if (isMonthly) {
+      paymentPeriod = typeof isMonthly === "string" ? isMonthly : "bulanan";
+    }
+    const paymentType = isMonthly
+      ? `pembayaran ${paymentPeriod}`
+      : "pembayaran sekali";
+    const priceSuffix = isMonthly
+      ? typeof isMonthly === "string"
+        ? `/${isMonthly}`
+        : "/bulan"
+      : "";
+    const formattedMessage = `${whatsappMessage} ${title} (${price}${priceSuffix}) dengan ${paymentType}`;
 
     // Create the WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
@@ -166,7 +175,11 @@ export function PricingCard({
             <CardTitle className="mt-4 text-3xl font-bold">
               {price}
               <span className="ml-1 text-base font-normal text-muted-foreground">
-                {isMonthly ? "/bulan" : ""}
+                {isMonthly
+                  ? typeof isMonthly === "string"
+                    ? `/${isMonthly}`
+                    : "/bulan"
+                  : ""}
               </span>
             </CardTitle>
 

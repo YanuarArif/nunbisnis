@@ -18,7 +18,7 @@ export function Pricing() {
     "Support 7 Hari",
   ];
 
-  // Monthly payment features
+  // Yearly payment features for personal package
   const personalMonthlyFeatures = [
     "1-5 Halaman Website",
     "Domain .com",
@@ -26,7 +26,7 @@ export function Pricing() {
     "SSL Certificate",
     "Mobile Responsive",
     "Website Static",
-    "Revisi 1x/bulan",
+    "Revisi 3x/tahun",
     "Support 24/7",
   ];
 
@@ -235,7 +235,7 @@ export function Pricing() {
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           <PricingCard
             title="Website Pribadi"
-            price="Rp 1.000.000"
+            price="Rp 1.500.000"
             description="Cocok untuk website personal, portofolio, atau blog pribadi."
             features={personalFeatures}
             colorVariant="blue"
@@ -262,7 +262,7 @@ export function Pricing() {
           />
         </div>
 
-        {/* Monthly Payment Pricing Cards Row */}
+        {/* Recurring Payment Pricing Cards Row */}
         <motion.div
           className="mx-auto max-w-3xl text-center mt-24"
           initial={{ opacity: 0, y: 20 }}
@@ -270,22 +270,22 @@ export function Pricing() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h3 className="text-2xl font-bold tracking-tight">
-            Pembayaran Bulanan
+            Pembayaran Berlangganan
           </h3>
           <p className="mt-2 text-md text-muted-foreground">
-            Bayar per bulan untuk layanan website berkelanjutan
+            Bayar secara berkala untuk layanan website berkelanjutan
           </p>
         </motion.div>
 
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           <PricingCard
             title="Website Pribadi"
-            price="Rp 0"
+            price="Rp 500.000"
             description="Cocok untuk website personal, portofolio, atau blog pribadi."
             features={personalMonthlyFeatures}
             colorVariant="blue"
             buttonText="Pilih Paket Pribadi"
-            isMonthly={true}
+            isMonthly="tahun"
           />
 
           <PricingCard
