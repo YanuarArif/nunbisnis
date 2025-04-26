@@ -30,7 +30,7 @@ interface PricingCardProps extends React.ComponentProps<typeof Card> {
   title: string;
   price: string;
   description: string;
-  features: string[];
+  features?: string[];
   popular?: boolean;
   buttonText?: string;
   colorVariant?: "blue" | "purple" | "green";
@@ -38,6 +38,7 @@ interface PricingCardProps extends React.ComponentProps<typeof Card> {
   whatsappMessage?: string;
   onButtonClick?: () => void;
   isMonthly?: boolean | string;
+  showFeatures?: boolean;
 }
 
 export function PricingCard({
@@ -45,7 +46,7 @@ export function PricingCard({
   title,
   price,
   description,
-  features,
+  features = [],
   popular = false,
   buttonText = "Pilih Paket",
   colorVariant = "blue",
@@ -53,6 +54,7 @@ export function PricingCard({
   whatsappMessage = "Halo, saya tertarik dengan paket",
   onButtonClick,
   isMonthly = false,
+  showFeatures = true,
   ...props
 }: PricingCardProps) {
   // Map color variants to button variants and badge variants
@@ -187,14 +189,23 @@ export function PricingCard({
           </CardHeader>
 
           <CardContent className="space-y-6 pb-6 flex-grow">
-            <ul className="space-y-3 min-h-[300px]">
-              {features.map((feature, i) => (
-                <li key={i} className="flex items-start">
-                  <Check className={cn("mr-2 mt-0.5 h-5 w-5", colors.icon)} />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
+            {showFeatures && features.length > 0 && (
+              <ul className="space-y-3 min-h-[300px]">
+                {features.map((feature, i) => (
+                  <li key={i} className="flex items-start">
+                    <Check className={cn("mr-2 mt-0.5 h-5 w-5", colors.icon)} />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {!showFeatures && (
+              <div className="min-h-[100px] flex items-center justify-center">
+                <p className="text-center text-muted-foreground">
+                  Perpanjangan layanan website dan dukungan teknis
+                </p>
+              </div>
+            )}
           </CardContent>
         </div>
         <CardFooter className="pt-4">
